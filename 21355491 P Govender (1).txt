@@ -1,0 +1,94 @@
+//Preshen Govender
+//21355491
+//PRACTICAL PROJECT 1 Microcontroller Systems 4
+
+//The aim was to maintain a 20% duty cycle while the clock cycle changes. 
+
+//Stage 1 used 500 cycles - Chosen 
+//Stage 2 used 1000 cycles - 500 x 2 (1st Digit of St.Num)
+//Stage 3 used 100 cycles - 1000/(9+1) (2nd Last Digit of St.Num)
+//Stage 4 used 200 cycles - 100 x (1+1) (Last Digit of St.Num)
+
+//For a duty cycle on 20%, a ratio of 1:4 was used (On:Off)
+//As per calculations
+
+
+#include <p24fj128ga010.h>
+
+#define DELAY_ST1_ON 100 	//(500/5) x 1
+#define DELAY_ST1_OFF 400	//(500/5) x 4
+#define DELAY_ST2_ON 200	//(1000/5) x 1
+#define DELAY_ST2_OFF 800	//(1000/5) x 4
+#define DELAY_ST3_ON 20		//(100/5) x 1 
+#define DELAY_ST3_OFF 80	//(100/5) x 4
+#define DELAY_ST4_ON 40		//(200/5) x 1
+#define DELAY_ST4_OFF 160	//(200/5) x 4
+
+main()
+{
+TRISA= 0x0000; // PORTA to be used as an output port
+PORTA=0x0000; // Resetting PORTA
+T1CON=0x8000; // Prescaler value of 1:1
+TMR1=0;
+
+while(1)
+{
+//Turning on PORTA pin 0 for 100 cycles
+PORTA=0x00ff; //Turning on pins 0-7 on PORTA
+TMR1=0;
+while(TMR1<DELAY_ST1_ON)
+{
+// Wait
+}
+//Turning off PORTA pin 0 for 400 cycles
+PORTA=0;//Turning off pins on PORTA
+TMR1=0;
+while(TMR1<DELAY_ST1_OFF)//Waiting for timer to complete cycles
+{
+// Wait
+}   
+//Turning on PORTA pin 0 for 200 cycles
+PORTA=0x00ff;//Turning on pins 0-7 on PORTA
+TMR1=0;
+while(TMR1<DELAY_ST2_ON)
+{
+// Wait
+}
+//Turning off PORTA pin 0 for 800 cycles
+PORTA=0;//Turning off pins on PORTA
+TMR1=0;
+while(TMR1<DELAY_ST2_OFF)
+{
+// Wait
+}
+//Turning on PORTA pin 0 for 20 cycles
+PORTA=0x00ff;//Turning on pins 0-7 on PORTA
+TMR1=0;
+while(TMR1<DELAY_ST3_ON)
+{
+// Wait
+}
+//Turning off PORTA pin 0 for 80 cycles
+PORTA=0;//Turning off pins on PORTA
+TMR1=0;
+while(TMR1<DELAY_ST3_OFF)
+{
+// Wait
+}
+//Turning on PORTA pin 0 for 40 cycles
+PORTA=0x00ff;//Turning on pins 0-7 on PORTA
+TMR1=0;
+while(TMR1<DELAY_ST4_ON)
+{
+// Wait
+}
+//Turning off PORTA pin 0 for 160 cycles
+PORTA=0;//Turning off pins on PORTA
+TMR1=0;
+while(TMR1<DELAY_ST4_OFF)
+{
+// Wait
+}
+
+}//main while loop
+}//main loop
