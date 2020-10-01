@@ -8,3 +8,5 @@ The robot will have sensors at the front in order to drive autonomously. These s
 The robot will also have to aware of its surroundings to avoid any crashes as you would expect from an autonomous car. The is necessary in the real world as when we consider road safety, pedestrians are the number one priority. The robot will have to know how far it is from an obstacle before it moves in any direction. The robot will also have to send all the data wirelessly to a mobile app. 
 
 Link to Presentation: https://dut4lifeac-my.sharepoint.com/:v:/g/personal/21355491_dut4life_ac_za/EbFs2twng31Np5-x0qf0S7ABMJuaSPsMbYE_iCfFUNa9Pg?e=IMGdmU
+
+Full code is included as well as full report
